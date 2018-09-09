@@ -1,0 +1,19 @@
+{
+    "name": "sinevia/php-library-scheduler",
+    "description": "PHP Library Scheduler",
+    "type": "library",
+    "keywords": ["scheduler", "library", "php", "sinevia"],    
+    "homepage": "http://github.com/sinevia/php-library-scheduler",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Milan Lesichkov",
+            "email": "lesichkovm@gmail.com",
+            "homepage": "http://lesichkov.co.uk",
+            "role": "Lead Developer"
+        }
+    ],
+    "autoload": {
+        "files": ["src/Scheduler.php"]
+    }
+}
