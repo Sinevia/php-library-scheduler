@@ -1,7 +1,6 @@
 # PHP Library. Scheduler
 
-Database driven scheduler
-
+Database driven scheduler.
 
 ## Usage ##
 
@@ -10,3 +9,12 @@ Database driven scheduler
 
 (new \Sinevia\Scheduler)->run();
 ```
+
+## Helpers ##
+
+- {DIR}
+
+The {DIR} occurrence in a command will be substituted with the current project folder absolute path
+
+For instance: 
+php {DIR}/cron/mails-archive.php will be converted to php /var/www/your-project/cron/mails-archive.php
