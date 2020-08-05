@@ -18,3 +18,7 @@ The {DIR} occurrence in a command will be substituted with the current project f
 
 For instance: 
 php {DIR}/cron/mails-archive.php will be converted to php /var/www/your-project/cron/mails-archive.php
+
+## Screenshots ##
+
+<img src="Screenshot.png" />
