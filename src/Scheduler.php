@@ -84,20 +84,27 @@ class Scheduler {
 
             if ($cron->isDue()) {
                 self::comment(" - Executing schedule (id:" . $schedule['Id'] . "): " . $schedule['Title']);
+                $baseDir = dirname(dirname(dirname(dirname(__DIR__))));
+                
+                $command = str_replace('{DIR}', $baseDir, $schedule['Command']);
 
                 $runId = self::$db->table(self::$tableRun)->nextId('Id');
-
+                self::comment(" -- Run ID: " . $runId);
                 self::$db->table(self::$tableRun)->insert([
                     'Id' => $runId,
                     'ScheduleId' => $schedule['Id'],
-                    'Command' => $schedule['Command'],
+                    'Command' => $command,
                     'StartedAt' => date('Y-m-d H:i:s'),
                     'CreatedAt' => date('Y-m-d H:i:s'),
                     'UpdatedAt' => date('Y-m-d H:i:s'),
                 ]);
 
-                exec($schedule['Command'], $output);
+                self::comment(" -- Command: " . $command);
+
+                exec($command, $output);
                 $output = implode("\n", $output);
+                
+                self::comment($output);
 
                 self::$db->table(self::$tableRun)
                         ->where('Id', '=', $runId)
