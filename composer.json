@@ -15,5 +15,8 @@
     ],
     "autoload": {
         "files": ["src/Scheduler.php"]
+    },
+    "require": {        
+        "dragonmantank/cron-expression": "^3.0"
     }
 }
