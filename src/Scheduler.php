@@ -98,6 +98,12 @@ class Scheduler {
                     'CreatedAt' => date('Y-m-d H:i:s'),
                     'UpdatedAt' => date('Y-m-d H:i:s'),
                 ]);
+                
+                self::$db->table(self::$tableSchedule)
+                        ->where('Id', '=', $schedule['Id'])
+                        ->update([
+                            'RunAt' => date('Y-m-d H:i:s'),
+                ]);
 
                 self::comment(" -- Command: " . $command);
 
